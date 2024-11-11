@@ -1,1 +1,105 @@
-Hello world
+<!DOCTYPE HTML>
+<html lang="en">
+   <head>
+       <title>All Things Burger</title>
+       <meta charset="utf-8"/>
+   </head>
+   <body>
+        <header>
+            <h1>Welcome to All Things Burger!</h1>
+        </header>
+        <main>
+            <section>
+            <h1>Select burger</h1>
+                <p>This is where you execute burger selection</p>
+                <div style="display:inline-block">
+                    <h2>The Fire Burger</h2>
+                    <P>It doesn't get more volcano than this</P>
+                    <img src="/img/fireburger.jpg" alt="Span">
+                    <ul>
+                        <li>Contains gluten</li>
+                        <li>Contains lactose</li>
+                    </ul>
+                </div>
+                <div style="display:inline-block">
+                    <h2>The Burger Stack</h2>
+                    <p>Overflow ahoy!</p>
+                    <img src="/img/stackofburgers.jpg" alt="Span">
+                    <ul>
+                        <li>Contains more gluten</li>
+                        <li>Contains more lactose</li>
+                    </ul>
+                </div>
+                <div style="display:inline-block">
+                    <h2>The Horse Burger</h2>
+                    <p>Did someone say "neigh"?</p>
+                    <img src="/img/horseburger.jpg" alt="Span">
+                    <ul>
+                        <li>Contains gluten</li>
+                        <li>Contains horse</li>
+                    </ul>
+                </div>
+            </section>
+            <section id="contact">
+                <form>
+                    <h1>Customer Information</h1>
+                    <p>This is where you provide necessary information</p>
+                    <h1>Delivery Information</h1>
+                    <p>
+                        <label for="fullname">Full name</label><br>
+                        <input type="text" id="fullname" name="fn" required="required" placeholder="First- and Last name">
+                    </p>
+                    <p>
+                        <label for="email">E-mail</label><br>
+                        <input type="email" id="email" name="em" required="required" placeholder="E-mail adress">
+                    </p>
+                    <p>
+                        <label for="street">Street</label><br>
+                        <input type="text" id="street" name="st" required="required" placeholder="Street name">
+                    </p>
+                    <p>
+                        <label for="house">House</label><br>
+                        <input type="number" id="house" name="fn" required="required" placeholder="House number">
+                    </p>
+                    <p>
+                        <label for="payment">Payment options</label><br>
+                        <select id="payment" name="pay">
+                            <option selected="selected">Credit card</option>
+                            <option>Swish</option>
+                            <option>Klarna</option>
+                            <option>PayPal</option>
+                            <option>Cash</option>
+                        </select>
+                    </p>
+                    <p>Gender</p>
+                    <p>
+                        <input type="radio" id="male" name="gender" value="male">
+                        <label for="male">Male</label>
+                    </p>
+                    <p>
+                        <input type="radio" id="female" name="gender" value="female">
+                        <label for="female">Female</label>
+                    </p>
+                    <p>
+                        <input type="radio" id="other" name="gender" value="other">
+                        <label for="other">Other</label>
+                    </p>
+                    <p>
+                        <input type="radio" id="undisclosed" name="gender" value="undisclosed" checked>
+                        <label for="undisclosed">Undisclosed</label>
+                    </p>
+
+                </form>
+
+            </section>
+        </main>
+        <button type="submit">
+            <img src="/img/orderbutton.png">
+            Place order
+        </button>
+        <hr>
+        <footer>
+            &copy; Emanru Creative Group Inc.
+        </footer>    
+   </body>
+</html>
