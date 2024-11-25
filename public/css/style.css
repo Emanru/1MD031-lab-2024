@@ -1,64 +1,89 @@
 @import url('https://fonts.googleapis.com/css2?family=Agbalumo&family=Cormorant:wght@700&display=swap');
-body {
-    font-size: 12pt;
-}
-
-p {
-    color: red;
-}
-
-h1 {
-    font-family: 'Agbalumo';
-    font-size: 36pt;
-}
-main, header, footer, nav ul {
-    max-width: 40rem;
-    margin: 0 auto 0 auto;
-}
-main {
-    background-color: bisque;
-}
-
-/* nav ul li {
-    display: inline-block;
-    background-color: grey;
-    padding: 1em;
-    margin: 1em;
-} */
 
 header {
-    background-image: url("../img/polacks.jpg");
+    background-image: url("/img/headerimg.png");
     background-size: cover;
     overflow: hidden;
-    width: 100%;
     height: 200px;
+    margin: 10px;
     opacity: 0.5;
 }
 
 header h1 {
     width:40rem;
-    margin: 0 auto;
+    margin: 50px auto;
     text-align: center;
+    color: black;
 }
 
-nav ul {
+body {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 16pt;
+}
+
+h2 {
+    font-family:'Times New Roman', Times, serif;
+    font-size: 20pt;
+}
+
+.burgers {
+    background-color: black;
+    color:white;
+    border: 4px dashed white;
+    padding: 5px;
+    margin: 10px;
+}
+
+.burger-wrapper {
     display: grid;
-    grid-template-columns: repeat(auto-fill, 9.25em);
-    gap: 1em;
-    padding: 0;
+    grid-gap: 10px;
+    grid-template-columns: 25% 25% 25%;
 }
 
-nav li {
-    display: block;
-    background-color: grey;
-    padding: 1em;
+.burger {
+    margin: 5px;
+    padding: 5px;
 }
 
-.Very-good {
-    color: green;
+.burger img {
+    width:100%;
+    height:auto;
 }
 
-.Master {
-    color: green;
+.ingredients {
     font-weight: bold;
+    margin: auto 5px;
+}
+
+#contact {
+    background-color: white;
+    margin: 10px;
+    padding: 10px;
+    border: 4px dashed black;
+}
+
+button {
+    margin: 10px;
+}
+
+button img {
+    height: 30px;
+    width: 30px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 0px;
+}
+
+button:hover {
+    background-color: rgb(93, 152, 93);
+    cursor: pointer;
+}
+
+button:active {
+    background-color: rgb(48, 89, 60);
+}
+
+footer {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10pt;
 }
