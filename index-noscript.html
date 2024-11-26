@@ -1,0 +1,111 @@
+<!DOCTYPE HTML>
+<html lang="en">
+   <head>
+       <link rel="stylesheet" type="text/css" href="/css/style.css">
+       <title>All Things Burger</title>
+       <meta charset="utf-8"/>
+   </head>
+   <body>
+        <header>
+            <h1>Welcome to All Things Burger!</h1>
+        </header>
+        <main>
+            <section class = "burgers">
+                <h2>Select burger</h2>
+                <p>This is where you execute burger selection</p>
+                <div class="burger-wrapper">
+                    <div class="burger">
+                        <h2>The Fire Burger</h2>
+                        <P>It doesn't get more volcano than this</P>
+                        <img src="/img/fireburger.jpg" alt="Span">
+                        <ul>
+                            <li>764 kCal</li>
+                            <li>Contains<span class="ingredients">gluten</span></li>
+                            <li>Contains<span class="ingredients">lactose</span></li>
+                        </ul>
+                    </div>
+                    <div class="burger">
+                        <h2>The Burger Stack</h2>
+                        <p>Overflow ahoy!</p>
+                        <img src="/img/stackofburgers.jpg" alt="Span">
+                        <ul>
+                            <li>2292 kCal</li>
+                            <li>Contains<span class="ingredients">gluten</span></li>
+                            <li>Contains<span class="ingredients">lactose</span></li>
+                        </ul>
+                    </div>
+                    <div class="burger">
+                        <h2>The Horse Burger</h2>
+                        <p>Did someone say "neigh"?</p>
+                        <img src="/img/horseburger.jpg" alt="Span">
+                        <ul>
+                            <li>468 kCal</li>
+                            <li>Contains<span class="ingredients">gluten</span>
+                            <li>Contains<span class="ingredients">horse</span>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            <section id="contact">
+                <form>
+                    <h2>Customer Information</h2>
+                    <p>This is where you provide necessary information</p>
+                    <h1>Delivery Information</h1>
+                    <p>
+                        <label for="fullname">Full name</label><br>
+                        <input type="text" id="fullname" name="fn" required="required" placeholder="First- and Last name">
+                    </p>
+                    <p>
+                        <label for="email">E-mail</label><br>
+                        <input type="email" id="email" name="em" required="required" placeholder="E-mail adress">
+                    </p>
+                    <p>
+                        <label for="street">Street</label><br>
+                        <input type="text" id="street" name="st" required="required" placeholder="Street name">
+                    </p>
+                    <p>
+                        <label for="house">House</label><br>
+                        <input type="number" id="house" name="fn" required="required" placeholder="House number">
+                    </p>
+                    <p>
+                        <label for="payment">Payment options</label><br>
+                        <select id="payment" name="pay">
+                            <option selected="selected">Credit card</option>
+                            <option>Swish</option>
+                            <option>Klarna</option>
+                            <option>PayPal</option>
+                            <option>Cash</option>
+                        </select>
+                    </p>
+                    <p>Gender</p>
+                    <p>
+                        <input type="radio" id="male" name="gender" value="male">
+                        <label for="male">Male</label>
+                    </p>
+                    <p>
+                        <input type="radio" id="female" name="gender" value="female">
+                        <label for="female">Female</label>
+                    </p>
+                    <p>
+                        <input type="radio" id="other" name="gender" value="other">
+                        <label for="other">Other</label>
+                    </p>
+                    <p>
+                        <input type="radio" id="undisclosed" name="gender" value="undisclosed" checked>
+                        <label for="undisclosed">Undisclosed</label>
+                    </p>
+
+                </form>
+
+            </section>
+        </main>
+        <button type="submit">
+            <img src="/img/delivery.png">
+            Place my order!
+        </button>
+        <hr>
+        <footer>
+            &copy; Emanru Creative Group Inc.
+        </footer>    
+   </body>
+</html>
