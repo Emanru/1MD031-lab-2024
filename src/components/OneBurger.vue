@@ -8,9 +8,9 @@
       <li v-if="burger.gluten == true">Gluten</li>
       <li v-if="burger.lactose == true">Lactose</li>
     </ul>
-    <button v-on:click="addBurger">Add</button>
+    <button v-on:click="addBurger"></button>
     <button v-on:click="removeBurger">Remove</button>
-    <p>{{ amountOrdered }}</p>
+    <p>Amount: {{ amountOrdered }}</p>
   </div>
 </template>
 
@@ -28,9 +28,20 @@ export default {
   methods: {
     addBurger: function() {
       this.amountOrdered++;
+      this.$emit('orderedBurger', {name: this.burger.name,
+                                   amount: this.amountOrdered
+                                  }
+      );
     },
     removeBurger: function() {
-      this.amountOrdered--;
+      if(this.amountOrdered > 0) {
+         this.amountOrdered--;
+         this.$emit('orderedBurger', {name: this.burger.name,
+                                      amount: this.amountOrdered
+                                      }
+        );
+      }
+      
     }
   }
 }

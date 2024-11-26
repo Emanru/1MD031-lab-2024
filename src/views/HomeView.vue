@@ -9,7 +9,8 @@
       <div class="burger-wrapper">
         <Burger v-for="burger in burgers"
                 v-bind:burger="burger"
-                v-bind:key="burger.name"/>
+                v-bind:key="burger.name"
+                v-on:orderedBurger="addToOrder($event)"/>
       </div>
     </section>
     <section class="contactsection">
@@ -35,7 +36,7 @@
         </p>
         <p>
           <label for="payment">Payment options</label><br>
-          <select id="payment" name="pay">
+          <select v-model="payment" id="payment">
             <option selected="selected">Credit card</option>
             <option>Swish</option>
             <option>Klarna</option>
@@ -108,7 +109,9 @@ export default {
       email: '',
       street: '',
       house: '',
-      gender: 'undisclosed'
+      payment: '',
+      gender: 'undisclosed',
+      orderedBurgers:{},
     }
   },
   methods: {
@@ -125,8 +128,13 @@ export default {
                               }
                  );
     },
+    addToOrder: function(event) {
+      this.orderedBurgers[event.name] = event.amount;
+    },
     placeOrder: function () {
-      console.log(this.fullname, this.email, this.street, this.house, this.gender);
+      console.log(this.fullname, this.email, this.street, 
+                  this.house, this.payment, this.gender,
+                  this.orderedBurgers);
     }
   }
 }
