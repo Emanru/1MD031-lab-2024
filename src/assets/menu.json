@@ -1,22 +1,25 @@
 [{
-    "name": "Fire burger", 
+    "name": "Steam Burger", 
     "kCal": 746, 
-    "img": "https://images-bonnier.imgix.net/files/ifo/production/20220412084608/Kødfri-burger-1.jpg?auto=compress,format&w=1024%201024w",
+    "img": "https://images-bonnier.imgix.net/files/his/production/2022/05/31110808/Burger-start.jpg?auto=compress,format&w=2618&fit=crop&crop=focalpoint&fp-x=0.5&fp-y=0.5",
     "lactose": true, 
-    "gluten": true
+    "gluten": true,
+    "squid": false
 },
 {
-    "name": "Burger stack", 
-    "kCal": 2292, 
-    "img": "https://images-bonnier.imgix.net/files/ifo/production/20220412084608/Kødfri-burger-1.jpg?auto=compress,format&w=1024%201024w",
-    "lactose": true, 
-    "gluten": true
-},
-{
-    "name": "Horseburger", 
+    "name": "Inked Burger", 
     "kCal": 468, 
-    "img": "https://images-bonnier.imgix.net/files/ifo/production/20220412084608/Kødfri-burger-1.jpg?auto=compress,format&w=1024%201024w",
+    "img": "https://images.squarespace-cdn.com/content/v1/5c44f7a155b02c5aa1fb5f8e/1567456807487-3TG2GZBHEJPXZ1TLKPRX/Bonnier_Green+Burgers+cut.jpg",
     "lactose": false, 
-    "gluten": true
+    "gluten": true,
+    "squid": true
+},
+{
+    "name": "The Meal",
+    "kCal": 2292, 
+    "img": "https://usercontent.one/wp/www.burgerdudes.se/wp-content/uploads/2021/12/dine_baconcheese_dec21_ny-rec.jpg?media=1729203900",
+    "lactose": true, 
+    "gluten": true,
+    "squid": false
 }
 ]

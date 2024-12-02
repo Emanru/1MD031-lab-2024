@@ -27,14 +27,6 @@
           <input type="email" v-model="email" id="email" required="required" placeholder="E-mail adress">
         </p>
         <p>
-          <label for="street">Street</label><br>
-          <input type="text" v-model="street" id="street" required="required" placeholder="Street name">
-        </p>
-        <p>
-          <label for="house">House</label><br>
-          <input type="number" v-model="house" id="house" name="fn" required="required" placeholder="House number">
-        </p>
-        <p>
           <label for="payment">Payment options</label><br>
           <select v-model="payment" id="payment">
             <option selected="selected">Credit card</option>
@@ -62,6 +54,14 @@
           <label for="undisclosed">Undisclosed</label>
         </p>
       </form>
+      <p>Please select destination</p>
+      <div class="mapwrapper">
+        <div id="map" v-on:click="setLocation">
+          <div v-bind:style="{left: location.x + 'px', top: location.y + 'px'}">
+            T
+          </div>
+        </div>
+      </div>
     </section>
   </main>
   <button v-on:click="placeOrder()" type="submit">
@@ -107,67 +107,73 @@ export default {
       burgers: burgerArray,
       fullname: '',
       email: '',
-      street: '',
-      house: '',
       payment: '',
       gender: 'undisclosed',
-      orderedBurgers:{},
+      location: {x: 0,
+                 y: 0
+                },
+      orderedBurgers:{}
     }
   },
   methods: {
     getOrderNumber: function () {
       return Math.floor(Math.random()*100000);
     },
-    addOrder: function (event) {
-      var offset = {x: event.currentTarget.getBoundingClientRect().left,
-                    y: event.currentTarget.getBoundingClientRect().top};
-      socket.emit("addOrder", { orderId: this.getOrderNumber(),
-                                details: { x: event.clientX - 10 - offset.x,
-                                           y: event.clientY - 10 - offset.y },
-                                orderItems: ["Beans", "Curry"]
-                              }
-                 );
-    },
+    addOrder: function (event) {},
     addToOrder: function(event) {
-      this.orderedBurgers[event.name] = event.amount;
+      this.orderedBurgers[event.name] = `${event.name}`+` (${event.amount})`;
     },
     placeOrder: function () {
-      console.log(this.fullname, this.email, this.street, 
-                  this.house, this.payment, this.gender,
-                  this.orderedBurgers);
+      socket.emit("addOrder", { orderId: this.getOrderNumber(),
+                                location: { x: this.location.x,
+                                           y: this.location.y,
+                                          },
+                                info: {name: this.fullname,
+                                       email: this.email,
+                                       payment: this.payment,
+                                       gender: this.gender
+                                      },           
+                                orderItems: this.orderedBurgers
+                              }
+                 );
+      console.log(this.fullname, this.email, this.payment, 
+                  this.gender, this.orderedBurgers);
+    },
+    setLocation: function(event) {
+      var offset = {x: event.currentTarget.getBoundingClientRect().left,
+                    y: event.currentTarget.getBoundingClientRect().top};
+      this.location.x = event.clientX - 10 - offset.x;
+      this.location.y = event.clientY - 10 - offset.y;
     }
+
   }
 }
 </script>
 
 <style>
-  #map {
-    width: 300px;
-    height: 300px;
-    background-color: red;
-  }
-
   @import url('https://fonts.googleapis.com/css2?family=Agbalumo&family=Cormorant:wght@700&display=swap');
-
+  
   header {
       background-image: url("/img/headerimg.png");
       background-size: cover;
       overflow: hidden;
       width: 100%;
       height: 200px;
-      margin: 10px;
       opacity: 0.5;
   }
 
   header h1 {
+      position: relative;
       width: 40rem;
       margin: 50px auto;
       text-align: center;
       color: black;
+      font-size: 36pt;
+      opacity: 1.0 !important;
   }
 
 
-  body {
+  main {
       font-family: 'Times New Roman', Times, serif;
       font-size: 16pt;
   }
@@ -212,6 +218,34 @@ export default {
       margin: 10px;
       padding: 10px;
       border: 4px dashed black;
+  }
+
+  .mapwrapper {
+      height: 300px;
+      margin: 10px;
+      overflow: scroll;
+  }
+
+  #map {
+      position: relative;
+      margin: 0;
+      padding: 0;
+      background-repeat: no-repeat;
+      width: 1920px;
+      height: 1078px;
+      cursor: crosshair;
+      background: url("/img/polacks.jpg");
+      
+  }
+
+  #map div {
+    position: absolute;
+    background-color: black;
+    color: white;
+    border-radius: 10px;
+    width:20px;
+    height:20px;
+    text-align: center;
   }
 
   button {

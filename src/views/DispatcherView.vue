@@ -1,13 +1,25 @@
 <template>
     <div id="orders">
       <div id="orderList">
-        <div v-for="(order, key) in orders" v-bind:key="'order'+key">
-          #{{ key }}: {{ order.orderItems.join(", ") }}
+        <div id ="wrapper" v-for="(order, key) in orders" v-bind:key="'order'+key">
+          <div id="orderID">
+            #{{ key }}: 
+          </div>
+          <div id="order">
+            <span id= "burgers" v-for="item in order.orderItems">
+              {{ item }}, 
+            </span>
+            <br>
+            <span id="details" v-for="detail in order.info">
+            {{ detail }}, 
+            </span>
+            <hr>
+          </div>
         </div>
         <button v-on:click="clearQueue">Clear Queue</button>
       </div>
       <div id="dots">
-          <div v-for="(order, key) in orders" v-bind:style="{ left: order.details.x + 'px', top: order.details.y + 'px'}" v-bind:key="'dots' + key">
+          <div v-for="(order, key) in orders" v-bind:style="{ left: order.location.x + 'px', top: order.location.y + 'px'}" v-bind:key="'dots' + key">
             {{ key }}
           </div>
       </div>
@@ -21,12 +33,13 @@
     name: 'DispatcherView',
     data: function () {
       return {
-        orders: null,
+        orders: null
       }
     },
     created: function () {
-      socket.on('currentQueue', data =>
-        this.orders = data.orders);
+      socket.on('currentQueue', data => {
+        this.orders = data.orders;
+      });
     },
     methods: {
       clearQueue: function () {
@@ -49,6 +62,14 @@
     background: rgba(255,255,255, 0.5);
     padding: 1em;
   }
+
+  #wrapper {
+    display: grid;
+      grid-gap: 10px;
+      grid-template-columns: 10% 90%;
+      margin: 0;
+  }
+
   #dots {
     position: relative;
     margin: 0;
